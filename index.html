@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Security Meta Tags -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://trusted.cdn.com; style-src 'self' 'unsafe-inline'">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="no-referrer-when-downgrade">
+  <meta name="robots" content="index, follow">
+  <title>Adrian Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: #ffffff;
+      background-color: #121212;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    #universe-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background: radial-gradient(#0f0f0f, #121212);
+      overflow: hidden;
+    }
+
+    .star {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.8);
+      width: 2px;
+      height: 2px;
+      transition: transform 0.2s ease-out;
+    }
+
+    .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(14, 14, 14, 0.352);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(20px);
+  color: rgba(13, 13, 13, 0.799);
+  padding: 10px 30px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+  border-bottom: none;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.974), rgba(51, 51, 51, 0))
+}
+
+.navbar.navbar-transparent {
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
+}
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00ffff;
+      text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff;
+      animation: pulse-glow 1.5s infinite;
+    }
+
+    @keyframes pulse-glow {
+      0% {
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff;
+      }
+      50% {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+      }
+      100% {
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff;
+      }
+    }
+
+    .logo {
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    section h2, header h1, header p {
+      color: #ffffff;
+    }
+
+    .skills-list span, .tools-list span {
+      background-color: #2a2a2a;
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      margin: 0.3rem;
+      display: inline-block;
+    }
+
+    .project, .experience, .education, .contact {
+      background-color: #1e1e1e;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    a {
+      color: #80cbc4;
+    }
+
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #404141;
+      color: #ffffff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 10px rgba(126, 128, 128, 0.6);
+      z-index: 10;
+    }
+
+    .scroll-to-top:hover {
+      background-color: #00e0e0;
+    }
+  </style>
+</head>
+<body>
+  <div id="universe-bg"></div>
+  
+
+  <nav class="navbar">
+    <div class="logo">Portfolio</div>
+    <div class="menu-toggle" id="menu-toggle"></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="navbar-fade"></div>
+
+  <header class="video-header">
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="web-home.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay">
+      <a href="" class="header-round-btn" target="_blank">
+        →
+        <span class="tooltip-text">Visit Resume</span>
+      </a>
+      <div class="arrow-down">&#8595;</div>
+    </div>
+    <div class="header-content">
+<p>
+  <span class="typing-text" id="typing"></span><span class="cursor">|</span>
+</p>
+  </div>
+  </header>
+
+  <div class="container" style="max-width: 1200px; margin: auto; padding: 20px;">
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about-content" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: center;">
+        <div class="about-image" style="flex: 1; min-width: 200px;">
+          <img src="myphoto.png" alt="Your Photo" style="width: 100%; max-width: 250px; border-radius: 10px;">
+        </div>
+        <div class="about-text" style="flex: 2;">
+          <p>Hello I'm Adrian, I'm High school graduated and SHS-STEM Graduate. 
+
+            I have a Computer Skills in Video editing , photo editing, graphic designing, advertisement, digital marketing. In my one experience of Graphic designing and Editing Skills in my past job has been helpful for me to easily adapt and understand the tool that I Never using before, which help me to find job opportunity quickly as my role of in Graphic Designing.
+            
+            I have some knowledge about other Editing Tools like, Filmora, Adobe Illustrator, Davinci Resolve, Photoshop. and also, I have knowledge and how to use about Programming like HTML, JAVA SCRIPT, LUA, PYTHON. and also I know how to Make UI&UX Design.
+            
+            I enjoy learning new things , excelling in teamwork, working well under pressure, possessing strong time management and communication skills, and being detail-oriented and quick to learn new concepts.
+            
+            </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <span>Computer Programming</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Customer Service</span><span>Game Development</span><span>Graphic Design</span><span>Video Editing</span><span>Photo Editing</span><span>3D Models</span><span>GFX</span>
+      </div>
+    </section>
+
+    <section id="tools">
+      <h2>Tools</h2>
+      <div class="tools-list">
+        <span>Figma</span><span>Blender</span><span>VS Code</span><span>GitHub</span><span>Adobe Illustrator</span><span>Adobe Photoshop</span><span>Canva</span><span>CapCut</span><span>Filmora</span><span>OBS Studios</span><span>DaVinci Resolve</span><span>Clip Champ</span><span>Microsoft Office</span>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>Pending...</h3>
+        <p>...</p>
+        <p><strong>Tools:</strong> Microsoft Office</p>
+        <p><a href="" target="_blank">View Project</a></p>
+      </div>
+      <div class="project">
+        <h3>Website Landing Page Design</h3>
+        <p>Designed and built a responsive landing page using HTML, CSS, and JavaScript.</p>
+        <p><strong>Tools:</strong> VS Code, GitHub</p>
+        <p><a href="" target="_blank">View Project</a></p>
+      </div>
+      <div class="project">
+        <h3>Pending...</h3>
+        <p>...</p>
+        <p><strong>Tools:</strong> VS CODE</p>
+        <p><a href="https://github.com/JayDevzHub/Roblox-NametagSystem" target="_blank">View Code Sample</a></p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="experience">
+        <strong>Customer Support Specialist & Digital Marketing for Advertising Graphic Design</strong> — A.L.D. Company<br>
+        <em>Jan 2023 – Dec 2024</em>
+        <ul>
+          <li>Handled customer inquiries via chat and email</li>
+          <li>Resolved issues with empathy and professionalism</li>
+          <li>Collaborated with cross-functional teams to improve customer service processes</li>
+          <li>Making Digital Marketing Graphic Design for Business Industry</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="education">
+        <strong>2nd Year in Information Technology</strong> — CITI GLOBAL COLLEGE<br>
+        <em>2023 – 2024</em>
+        <ul>
+        <li>Undergraduate</li>
+      </ul>
+      </div>
+      <div class="education">
+        <strong>SHS in Science, Technology, Engineering, and Mathematics</strong> — CITI GLOBAL COLLEGE<br>
+        <em>2020 – 2022</em>
+      </div>
+      <div class="education">
+        <strong>JHS in Junior High School </strong> — Judge Feliciano Senior High School & Cabuyao Integrated National High School<br>
+        <em>2016 – 2019</em>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact">
+        <p>Contact me: <a>+63 961-791-7354</a></p>
+        <p>Feel free to reach out at <a href="mailto:your.email@example.com" id="email-link">Email Me</a></p>
+      </div>
+    </section>
+  </div>
+
+  <button class="scroll-to-top" id="scrollToTop">↑</button>
+
+  <script>
+
+  document.getElementById("email-link").href = "mailto:" + "you" + "@" + "example.com";
+
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
